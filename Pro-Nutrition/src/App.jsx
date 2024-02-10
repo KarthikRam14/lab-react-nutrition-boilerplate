@@ -1,43 +1,45 @@
-import "./App.css"
-import React, {Component} from "react";
-import FoodBox from "./Components/FoodBox";
-import Search from "./Components/Search";
-import FoodData from "./Components/FoodData";
+import "./App.css";
+import React, { Component } from "react";
+import FoodBox from "./components/FoodBox";
+import Search from "./components/Search";
+import FoodData from "./components/FoodData";
 
-export default class App extends Component{
-  constructor(props){
-    super(props)
+export default class App extends Component {
+  constructor(props) {
+    super(props);
 
     this.state = {
       searchTerm: "",
-    }
+    };
   }
 
-  handleSearch = (e)=>{
+  search = (e) => {
     this.setState({
-      searchTerm: e.target.value
-    })
-  }
+      searchTerm: e.target.value,
+    });
+  };
 
-  render(){
-    return(
+  render() {
+    return (
       <div>
-        <Search handleSearch={this.handleSearch}/>
+        <Search handleSearch={this.search} />
 
-        {
-          FoodData.filter((val)=>{
-            if(this.state.searchTerm ===""){
-              return val;
-            }
-            else
-            if(val.name.toLowerCase().includes(this.state.searchTerm.toLowerCase())){
-              return val;
-            }
-          }).map(footItem=>{
-            return ()
-          })
-        }
+        {FoodData.filter((value) => {
+          if (this.state.searchTerm === "") {
+            return value;
+          } else if (
+            value.name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
+          ) {
+            return value;
+          }
+        }).map((footItem) => {
+          return (
+            <div key={footItem.id} className="elements">
+              <FoodBox food={footItem} totalCost={this.totalCost} />
+            </div>
+          );
+        })}
       </div>
-    )
+    );
   }
 }
