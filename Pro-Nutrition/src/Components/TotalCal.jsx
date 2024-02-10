@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import './TotalCal.css'
 
 export default class TotalCal extends Component{
   render(){
