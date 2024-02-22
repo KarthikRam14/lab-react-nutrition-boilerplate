@@ -1,10 +1,37 @@
 .flex{
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 20vw;
 }
 
-.img{
-  height: 15vw;
-  width: 15vw;
+.image{
+  height: 8vw;
+  width: 8vw;
+}
+
+.bckColor, .input-control, .cals, .box{
+  display: flex;
+}
+
+.input-control{
+  align-items: center;
+  background-color: purple;
+}
+
+.control{
+  background-color: purple;
+}
+
+.box{
+  padding-top: 5vw;
+}
+
+.bckColor{
+  background-color: #E3E9E2;
+  width: max-content;
+}
+
+.reset{
+  height: max-content;
 }
